@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[]로 배열만들기</title>
+</head>
+<body>
+  <h2>[]로 배열만들기</h2>
+  []로 정수 5개의 배열을 만들고, <br>
+  원소의 값만큼 '*'을 출력하는 프로그램 
+  <hr>
+  <script>
+    var plots = [ 20, 5, 8, 15, 30 ];
+    document.write("var plots =  [ 20, 5, 8, 15, 30 ]<br>");
+
+    for(i=0; i<plots.length; i++) {
+      var size = plots[i]; //plots배열의 i번째 원소
+      while(size>0) {
+        document.write("*");
+        size--;
+      }
+      document.write(plots[i] + "<br>");
+    }
+  </script>
+</body>
+</html>

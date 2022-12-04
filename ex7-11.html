@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>프로토타입으로 객체 만들기</title>
+  <script>
+    function Account(owner, code, balance) {
+      //프로퍼티 만들기
+      this.owner = owner; //계좌주인 프로퍼티 만들기
+      this.code = code; //계좌 코드 프로퍼티 만들기
+      this.balance = balance; //잔액 프로퍼티 만들기
+
+      //메소드 만들기
+      this.inquiry = function() { return this.balance; };
+      this.deposit = function(money) { this.balance += money; };
+      this.withdraw = function(money) { //예금인출, money는 인출하고자 하는 액수
+        this.balance -= money; //money가 balance보다 작다고 가정
+        return money;
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>Account 프로토타입 만들기</h2>
+  <hr>
+  <script>
+    //new 연산자 이용하여 계좌 객체 생성
+    var account = new Account("신혜연", "123", "25000");
+
+    //객체 활용
+    document.write("account : ");
+    document.write(account.owner + ", ");
+    document.write(account.code + ", ");
+    document.write(account.balance + "<br>");
+
+    account.deposit(10000); //만원 저금
+    document.write("10000원 저금 후 잔액은 " + account.inquiry() + "<br>");
+    account.withdraw(5000); //5000원 인출
+    document.write("5000원 인출 후 잔액은 " + account.inquiry());
+  </script>
+</body>
+</html>
